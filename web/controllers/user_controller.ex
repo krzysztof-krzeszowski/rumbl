@@ -3,6 +3,15 @@ defmodule Rumbl.UserController do
 
   alias Rumbl.User
 
+  def create(conn, %{"user" => user_params}) do
+    changeset = User.changeset(%User{}, user_params)
+    {:ok, user} = Repo.insert(changeset)
+
+    conn
+    |> put_flash(:info, "#{user.name} crated!")
+    |> redirect(to: user_path(conn, :index))
+  end
+
   def index(conn, _params) do
     users = Repo.all(Rumbl.User)
     render conn, "index.html", users: users
