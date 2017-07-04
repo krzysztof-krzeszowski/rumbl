@@ -6,8 +6,8 @@
 use Mix.Config
 
 # General application configuration
-config :rumbl,
-  ecto_repos: [Rumbl.Repo]
+#config :rumbl,
+#  ecto_repos: [Rumbl.Repo]
 
 # Configures the endpoint
 config :rumbl, Rumbl.Endpoint,
